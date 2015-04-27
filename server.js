@@ -1,25 +1,52 @@
 // Module dependencies.
- 
-var express    = require( 'express' );
-var bodyParser = require('body-parser');
-var path       = require( 'path' );
-var logger     = require('morgan');
-var mongoose   = require( 'mongoose' );
+var application_root = __dirname;
+var express          = require( 'express' );
+var bodyParser       = require('body-parser');
+var path             = require( 'path' );
+var mongoose         = require( 'mongoose' );
 
-var root = __dirname;
 
-//Create server
+mongoose.connect( 'mongodb://localhost/library_database' );
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('connected to mongodb.')
+})
+
+
+var Book = new mongoose.Schema({
+  title: String,
+  author: String,
+  releaseDate: Date
+});
+var BookModel = mongoose.model( 'Book', Book );
+
+
 var app = express();
 
-//Where to serve static content
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(root, 'site')));
+app.get('/api', function(req, res) {
+  res.send('api is workin!')
+});
 
-//Start server
-var port = process.env.PORT || 3000;
+app.get('/api/books', function(req, res) {
+  return BookModel.find(function(err, books) {
+    if(err) return console.log(err);
+    return res.send(books)
 
+  })
+})
+
+
+app.configure( function() {
+  app.use( express.bodyParser() );
+  app.use( express.methodOverride() );
+  app.use( app.router );
+  app.use( express.static( path.join( application_root, 'site') ) );
+  app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+
+var port = 3000;
 app.listen( port, function() {
-  console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
+    console.log( 'Express server listening on port %d in %s mode', port, app.settings.env );
 });
