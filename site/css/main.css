@@ -4,14 +4,6 @@
   margin: 2em auto;
 }
 
-.well {
-  width: 60%;
-  background-color: #f7f7f7;
-  border: 2px solid #ddd;
-  padding: 4em 2em;
-  border-radius: 4px;
-}
-
 .siteHeader {
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.8em;
@@ -41,13 +33,34 @@
   color: #fff;
 }
 
+.well {
+  width: 60%;
+  background-color: #f7f7f7;
+  border: 2px solid #ddd;
+  padding: 2em 8em;
+  border-radius: 4px;
+}
+
 .form-item input {
   border-radius: 4px;
+}
+
+label {
+  font-size: 0.8em;
 }
 
 #addBook {
   display: none;
   margin-bottom: 2em;
+}
+
+#add {
+  border: 1px solid #aaa;
+  color: #fff;
+}
+#add:hover {
+  color: #fff;
+  background-color: #31b0d5;
 }
 
 .bookContainer {
@@ -77,10 +90,10 @@
   border-top-left-radius: 6px;
 }
 
-a.delete {
+button.delete {
   color: #fff;
   opacity: 0.8;
 }
-a.delete:hover {
+button.delete:hover {
   opacity: 1.0;
 }
