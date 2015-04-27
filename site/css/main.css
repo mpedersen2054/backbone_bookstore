@@ -41,8 +41,9 @@
 }
 
 .bookContainer {
-  outline: 1px solid #aaa;
-  width: 320px;
+  position: relative;
+  border: 1px solid #eee;
+  width: 48%;
   height: 180px;
   background-color: #fff;
   float: left;
@@ -50,54 +51,30 @@
 }
 
 .bookContainer img {
-    float: left;
-    margin: 10px;
+  float: left;
+  margin: 20px 36px;
 }
 
 .bookContainer ul {
-    list-style-type: none;
-    margin-bottom: 0;
+  list-style-type: none;
+  margin-bottom: 0;
 }
 
-.bookContainer button {
-    float: right;
-    margin: 10px;
+#books {
+  width: 1140px;
+  margin: 0 auto;
 }
 
-#addBook label {
-    width: 100px;
-    margin-right: 10px;
-    text-align: right;
-    line-height: 25px;
+.delete {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
-#addBook label, #addBook input {
-    display: block;
-    margin-bottom: 10px;
-    float: left;
+a.delete {
+  color: #fff;
+  opacity: 0.8;
 }
-
-#addBook label[for="title"], #addBook label[for="releaseDate"] {
-    clear: both;
-}
-
-#addBook button {
-    display: block;
-    margin: 5px 20px 10px 10px;
-    float: right;
-    clear: both;
-}
-
-#addBook div {
-    width: 550px;
-}
-
-#addBook div:after {
-    content: "";
-    display: block;
-    height: 0;
-    visibility: hidden;
-    clear: both;
-    font-size: 0;
-    line-height: 0;
+a.delete:hover {
+  opacity: 1.0;
 }

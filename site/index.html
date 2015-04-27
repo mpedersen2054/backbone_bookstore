@@ -18,53 +18,49 @@
   <!-- <hr> -->
 </div>
 
-<div class="container">
+<div id="books">
+
   <div class="well">
 
-    <div id="books">
+    <form id="addBook" class="form-inline" action="#">
 
-      <form id="addBook" class="form-inline" action="#">
+      <div class="form-item">
+        <label for="coverImage">Cover Image: </label>
+        <input id="coverImage" type="file">
+      </div>
 
-        <div class="form-item">
-          <label for="coverImage">Cover Image: </label>
-          <input id="coverImage" type="file">
-        </div>
+      <div class="form-item">
+        <label for="title">Title: </label>
+        <input id="title" type="text">
+      </div>
 
-        <div class="form-item">
-          <label for="title">Title: </label>
-          <input id="title" type="text">
-        </div>
+      <div class="form-item">
+        <label for="author">Author: </label>
+        <input id="author" type="text">
+      </div>
 
-        <div class="form-item">
-          <label for="author">Author: </label>
-          <input id="author" type="text">
-        </div>
+      <div class="form-item">
+        <label for="releaseDate">Release Date: </label>
+        <input id="releaseDate" type="text">
+      </div>
 
-        <div class="form-item">
-          <label for="releaseDate">Release Date: </label>
-          <input id="releaseDate" type="text">
-        </div>
+      <div class="form-item">
+        <label for="keywords">Keywords: </label>
+        <input id="keywords" type="text">
+      </div>
 
-        <div class="form-item">
-          <label for="keywords">Keywords: </label>
-          <input id="keywords" type="text">
-        </div>
+      <hr>
 
-        <hr>
-
-        <input type="submit" value="Submit" class="btn">
-
-      </form>
-
-    </div>
+      <input type="submit" value="Submit" class="btn">
+    </form>
 
   </div> <!-- end well -->
-</div> <!-- end container -->
+
+</div>
 
 
 <!-- Templates -->
 <script id="bookTemplate" type="text/template">
-  <div class="book">
     <img src="<%= coverImage %>">
     <ul>
       <li><%= title %></li>
@@ -72,8 +68,7 @@
       <li><%= releaseDate %></li>
       <li><%= keywords %></li>
     </ul>
-    <a href="#" class="btn btn-small bg-red">Delete</a>
-    </div>
+    <a href="#" class="btn btn-small bg-red delete">Delete</a>
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
