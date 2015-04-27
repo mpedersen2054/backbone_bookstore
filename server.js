@@ -53,6 +53,7 @@ app.post('/api/books', function(req, res) {
     author: req.body.author,
     releaseDate: req.body.releaseDate
   });
+
   return book.save(function(err) {
     if(err) console.log(err);
     return res.send(book);
@@ -63,6 +64,20 @@ app.get('/api/books/:id', function(req, res) {
   return BookModel.findById(req.params.id, function(err, book) {
     if(err) console.log(err);
     return res.send(book);
+  });
+});
+
+app.put('/api/books/:id', function(req, res) {
+  console.log('updating book ' + req.body.title);
+  return BookModel.findById(req.params.id, function(err, book) {
+    book.title = req.body.title;
+    book.author = req.body.author;
+    book.releaseDate = req.body.releaseDate;
+
+    return book.save(function(err) {
+      if(err) console.log(err);
+      return res.send(book);
+    });
   });
 });
 
