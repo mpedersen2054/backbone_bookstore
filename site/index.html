@@ -12,7 +12,7 @@
   <header class="siteHeader clearfix">
     <h1 class="logo"><a href="#">Backbone Bookstore</a></h1>
     <nav class="nav">
-      <li><a href="#" class="btn bg-blue">Add Book +</a></li>
+      <li><a href="#" id="addBookBtn" class="btn bg-blue">Add Book +</a></li>
     </nav>
   </header>
   <!-- <hr> -->
@@ -20,9 +20,10 @@
 
 <div id="books">
 
-  <div class="well">
+  
 
-    <form id="addBook" class="form-inline" action="#">
+  <form id="addBook" class="form-inline" action="#">
+    <div class="well">
 
       <div class="form-item">
         <label for="coverImage">Cover Image: </label>
@@ -51,12 +52,12 @@
 
       <hr>
 
-      <input type="submit" value="Submit" class="btn">
-    </form>
+      <button id="add" class="btn">Submit</button>
+    </div> <!-- end well -->
+  </form>
 
-  </div> <!-- end well -->
 
-</div>
+</div> <!-- end #books -->
 
 
 <!-- Templates -->
@@ -74,6 +75,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
+<script src="js/effects.js"></script>
 <script src="js/models/book.js"></script>
 <script src="js/collections/library.js"></script>
 <script src="js/views/book.js"></script>

@@ -1,15 +1,20 @@
 
+#books {
+  width: 1140px;
+  margin: 2em auto;
+}
+
 .well {
   width: 60%;
-  margin: 1.6em 0;
   background-color: #f7f7f7;
+  border: 2px solid #ddd;
   padding: 4em 2em;
   border-radius: 4px;
 }
 
 .siteHeader {
   border-bottom: 1px solid #ccc;
-  padding-bottom: 0.6em;
+  padding-bottom: 0.8em;
 }
 
 .logo {
@@ -40,10 +45,15 @@
   border-radius: 4px;
 }
 
+#addBook {
+  display: none;
+  margin-bottom: 2em;
+}
+
 .bookContainer {
   position: relative;
-  border: 1px solid #eee;
-  width: 48%;
+  border: 1px solid #ddd;
+  width: 49.1%;
   height: 180px;
   background-color: #fff;
   float: left;
@@ -60,15 +70,11 @@
   margin-bottom: 0;
 }
 
-#books {
-  width: 1140px;
-  margin: 0 auto;
-}
-
 .delete {
   position: absolute;
   bottom: 0;
   right: 0;
+  border-top-left-radius: 6px;
 }
 
 a.delete {
