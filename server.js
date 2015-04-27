@@ -81,6 +81,16 @@ app.put('/api/books/:id', function(req, res) {
   });
 });
 
+app.delete('/api/books/:id', function(req, res) {
+  console.log('deleting book with id: ' + req.params.id);
+  return BookModel.findById(req.params.id, function(err, book) {
+    return book.remove(function(err) {
+      if(err) console.log(err)
+      return res.send('')
+    })
+  })
+});
+
 
 var port = 3000;
 app.listen( port, function() {
