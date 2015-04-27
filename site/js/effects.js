@@ -12,5 +12,10 @@ effects.init = function() {
     })
   };
 
+  var datePicker = function() {
+    $('#releaseDate').datepicker();
+  };
+
   toggleAddBook();
+  datePicker();
 };

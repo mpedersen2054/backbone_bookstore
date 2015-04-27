@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Backbone.js Library</title>
   <link rel="stylesheet" href="css/concise.css">
+  <link rel="stylesheet" href="css/jquery-ui.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -64,13 +65,15 @@
     <ul>
       <li><%= title %></li>
       <li><%= author %></li>
-      <li><%= releaseDate %></li>
-      <li><%= keywords %></li>
+      <li><%= $.format.date( new Date(releaseDate), 'MMMM yyyy' ) %></li>
+      <li><% _.each(keywords, function(keyobj) {%> <%= keyobj.keyword %> <% }) %></li>
     </ul>
     <button class="btn btn-small bg-red delete">Delete</button>
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone.js"></script>
 <script src="js/effects.js"></script>
