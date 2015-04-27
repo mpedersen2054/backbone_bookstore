@@ -1,0 +1,103 @@
+
+.well {
+  width: 60%;
+  margin: 1.6em 0;
+  background-color: #f7f7f7;
+  padding: 4em 2em;
+  border-radius: 4px;
+}
+
+.siteHeader {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.6em;
+}
+
+.logo {
+  font-size: 1.6em;
+  float: left;
+  margin-top: 0.85em;
+  margin-bottom: 0px;
+}
+.logo a {
+  text-decoration: none;
+}
+
+.nav {
+  float: right;
+  margin-top: 1.4em;
+}
+.nav li {
+  display: inline-block;
+  margin-left: 2em;
+}
+
+.nav li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.form-item input {
+  border-radius: 4px;
+}
+
+.bookContainer {
+  outline: 1px solid #aaa;
+  width: 320px;
+  height: 180px;
+  background-color: #fff;
+  float: left;
+  margin: 5px;
+}
+
+.bookContainer img {
+    float: left;
+    margin: 10px;
+}
+
+.bookContainer ul {
+    list-style-type: none;
+    margin-bottom: 0;
+}
+
+.bookContainer button {
+    float: right;
+    margin: 10px;
+}
+
+#addBook label {
+    width: 100px;
+    margin-right: 10px;
+    text-align: right;
+    line-height: 25px;
+}
+
+#addBook label, #addBook input {
+    display: block;
+    margin-bottom: 10px;
+    float: left;
+}
+
+#addBook label[for="title"], #addBook label[for="releaseDate"] {
+    clear: both;
+}
+
+#addBook button {
+    display: block;
+    margin: 5px 20px 10px 10px;
+    float: right;
+    clear: both;
+}
+
+#addBook div {
+    width: 550px;
+}
+
+#addBook div:after {
+    content: "";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+    font-size: 0;
+    line-height: 0;
+}
