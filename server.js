@@ -53,10 +53,14 @@ app.post('/api/books', function(req, res) {
     author: req.body.author,
     releaseDate: req.body.releaseDate
   });
-
-  console.log(book)
-
   return book.save(function(err) {
+    if(err) console.log(err);
+    return res.send(book);
+  });
+});
+
+app.get('/api/books/:id', function(req, res) {
+  return BookModel.findById(req.params.id, function(err, book) {
     if(err) console.log(err);
     return res.send(book);
   });
