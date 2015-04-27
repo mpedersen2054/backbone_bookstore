@@ -5,14 +5,14 @@ var bodyParser       = require('body-parser');
 var path             = require( 'path' );
 var mongoose         = require( 'mongoose' );
 
+// Database
 
 mongoose.connect( 'mongodb://localhost/library_database' );
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('connected to mongodb.')
-})
-
+});
 
 var Book = new mongoose.Schema({
   title: String,
@@ -22,7 +22,18 @@ var Book = new mongoose.Schema({
 var BookModel = mongoose.model( 'Book', Book );
 
 
+// Config
 var app = express();
+
+app.configure( function() {
+  app.use( express.bodyParser() );
+  app.use( express.methodOverride() );
+  app.use( app.router );
+  app.use( express.static( path.join( application_root, 'site') ) );
+  app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
+});
+
+// Routes
 
 app.get('/api', function(req, res) {
   res.send('api is workin!')
@@ -31,18 +42,24 @@ app.get('/api', function(req, res) {
 app.get('/api/books', function(req, res) {
   return BookModel.find(function(err, books) {
     if(err) return console.log(err);
-    return res.send(books)
+    return res.send(books);
+  });
+});
 
-  })
-})
+app.post('/api/books', function(req, res) {
+  console.log(req.body)
+  var book = new BookModel({
+    title: req.body.title,
+    author: req.body.author,
+    releaseDate: req.body.releaseDate
+  });
 
+  console.log(book)
 
-app.configure( function() {
-  app.use( express.bodyParser() );
-  app.use( express.methodOverride() );
-  app.use( app.router );
-  app.use( express.static( path.join( application_root, 'site') ) );
-  app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
+  return book.save(function(err) {
+    if(err) console.log(err);
+    return res.send(book);
+  });
 });
 
 
